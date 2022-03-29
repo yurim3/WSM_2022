@@ -18,6 +18,9 @@ h6 {
 }
 li:nth-child(4) {
   /* 1부터 시작 */
+  /* nth-child(n): n번째 자식 */
+  /* first-child: 첫째 자식 */
+  /* last-child: 막내 자식 */
   text-decoration: underline;
 }
 h2 + h3 {
@@ -31,4 +34,8 @@ h2 ~ h3 {
 body > ul > ul:nth-child(2) {
   /* 찾는 요소 우클릭 > 검사 > 개발자도구 > 우클릭 > Copy > Copy selector */
   background-color: hotpink;
+}
+
+body > ul > ul > li:nth-child(3) {
+  text-decoration: underline;
 }
