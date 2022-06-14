@@ -1,19 +1,16 @@
 //toggle hidden menu
-const toggleMenu = function (toggleId, navListId) {
-    const toggle = document.getElementById(toggleId);
-    const navList = document.getElementById(navListId);
+const toggleMenu = (toggleId, navListId) => {
+  const toggle = document.getElementById(toggleId);
+  const navList = document.getElementById(navListId);
 
-    const clickHandler = function () {
-        navList.classList.toggle('show-menu');  // add: 추가, remove: 제거, toggle: 추가/제거
-    }
-
-    if (toggle && navList) {
-       toggle.addEventListener('click', clickHandler);
-    }
-
-}
-toggleMenu('nav-toggle', 'nav-list');
-
+  if (toggle && navList) {
+    // add: 추가, remove: 제거, toggle: 추가/제거
+    toggle.addEventListener("click", () =>
+      navList.classList.toggle("show-menu")
+    );
+  }
+};
+toggleMenu("nav-toggle", "nav-list");
 
 // function say() {
 //     console.log('hello world');
