@@ -20,6 +20,7 @@ const setCalendar = (year, month) => {
 
     //1~lastDate까지 반복하자
     const dateGridContainerDiv = document.getElementsByClassName("date-grid-container")[0];
+    dateGridContainerDiv.innerHTML = '';    //초기화
     for (let i = 1; i <= lastDate; i++) {
         //<div class="grid-item">$</div> -> <div class="date-grid-container"> 하위
         //새로운 element 만들자
@@ -36,6 +37,37 @@ const setCalendar = (year, month) => {
     let firstDateDiv = dateGridContainerDiv.getElementsByClassName("grid-item")[0];
     firstDateDiv.style.gridColumnStart = firstDay + 1;
 }
+//prevMonth 함수
+const prevMonth = () => {
+    //이전 월 구하자
+    month--;
+    if (month == 0) {
+        month = 12;
+        year--;
+    }
+    //setCalendar(년, 구한 월);
+    setCalendar(year, month);
+}
+
+//nextMonth 함수
+const nextMonth = () => {
+    //다음 월 구하자
+    month++;
+    if (month == 13) {
+        month = 1;
+        year++;
+    }
+    //setCalendar(년, 구한 월);
+    setCalendar(year, month);
+}
+
+//prev버튼 누르면 prevMonth 함수 실행하자
+prev_btn.onclick = prevMonth;   //() 쓰지마 승빈아. ()쓰면 함수 실행한 결과를 넣는거야. 근데 리턴값없으니 undefined야
+//next버튼 누르면 nextMonth 함수 실행하자
+next_btn.onclick = nextMonth;
+
+
+
 
 // 오늘 구하자
 let today = new Date();
