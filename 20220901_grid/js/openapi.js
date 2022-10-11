@@ -37,5 +37,15 @@ const ATPT_OFCDC_SC_CODE = "B10";   //서울특별시교육청
 const SD_SCHUL_CODE = "7010569";    //미림여자정보과학고등학교
 let MMEAL_SC_CODE = 2;  //중식
 let MLSV_YMD = "20220927";  //YYYYMMDD
+<<<<<<< HEAD
 
 >>>>>>> eaca2dc76d68cf26524f91149a3df31ab30561a2
+=======
+let url = `https://open.neis.go.kr/hub/mealServiceDietInfo?`
+        + `KEY=${KEY}`
+        + `ATPT_OFCDC_SC_CODE=${ATPT_OFCDC_SC_CODE}`
+        + `SD_SCHUL_CODE=${SD_SCHUL_CODE}`
+        + `MLSV_YMD=${MLSV_YMD}`
+        + `MMEAL_SC_CODE=${MMEAL_SC_CODE}`;
+console.log(url);
+>>>>>>> 13968f784bea15563a541b2f782ac41b506508ca
