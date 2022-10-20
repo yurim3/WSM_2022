@@ -25,12 +25,6 @@ let url = `https://open.neis.go.kr/hub/mealServiceDietInfo?`
         + `MMEAL_SC_CODE=${MMEAL_SC_CODE}`;
 console.log(url);
 
-        }else {
-            //fail
-            // console.log(xhr.status);
-        }
-    }
-
     //요청을 보낼 방식 정하자. true: 비동기
     xhr.open("GET", url, true);
 
@@ -48,9 +42,25 @@ console.log(url);
             if(json['mealServiceDietInfo'][0]['head'][1]['RESULT']['CODE'] == 'INFO-000') {
             //응답이 제대로 왔으면
                 //json -> HTML
-                breakfast.innerHTML = json['mealServiceDietInfo'][1]['row'][0]['DDISH_NM'];
-                lunch.innerHTML = json['mealServiceDietInfo'][1]['row'][1]['DDISH_NM'];
-                dinner.innerHTML = json['mealServiceDietInfo'][1]['row'][2]['DDISH_NM'];
+                try{
+                    breakfast.innerHTML = json['mealServiceDietInfo'][1]['row'][0]['DDISH_NM'];
+                }catch{
+                    breakfast.innerHTML = "없음";
+                }
+
+                try {
+                    lunch.innerHTML = json['mealServiceDietInfo'][1]['row'][1]['DDISH_NM'];
+                }catch{
+                    lunch.innerHTML = "없음";
+                }
+                
+                try {
+                    dinner.innerHTML = json['mealServiceDietInfo'][1]['row'][2]['DDISH_NM'];
+                    
+                }catch{
+                    dinner.innerHTML = "없음";
+                }
+            
             } else {
             //응답이 이상하면
                 //없음 표시하자
@@ -64,7 +74,7 @@ console.log(url);
             dinner.innerHTML = "없음";
         }
     }
-}
+
 
 for (let gridItem of gridItems) {
     gridItem.onmouseover = handler;
