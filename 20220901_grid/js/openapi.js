@@ -41,6 +41,7 @@ const handler = (event) => {
     // console.log(MLSV_YMD);
     let url = `https://open.neis.go.kr/hub/mealServiceDietInfo`
             + `?KEY=${KEY}`
+            + `&Type=json`
             + `&ATPT_OFCDC_SC_CODE=${ATPT_OFCDC_SC_CODE}`
             + `&SD_SCHUL_CODE=${SD_SCHUL_CODE}`
             + `&MLSV_YMD=${MLSV_YMD}`;
@@ -118,4 +119,5 @@ for (let gridItem of gridItems) {
     gridItem.onmouseover = handler;
     // gridItem.addEventListener("mouseover", handler);
 }
+
 //다 가져왔으면, 조식, 중식, 석식 표시하자
