@@ -85,7 +85,10 @@ const urlToJSON = (url) => {
                 //응답이 제대로 왔으면
                 //json -> HTML
                 try {
-                    breakfast.innerHTML = json['mealServiceDietInfo'][1]['row'][0]['DDISH_NM'];
+                    let breakfastData = json['mealServiceDietInfo'][1]['row'][0]['DDISH_NM'];
+                    //(5.13.) 삭제하자 알레르기 정보숫자
+                    breakfastData = breakfastData.replace(/\("모닝"/, ""); //정규표현식: (문자 숫자나 .문자 )문자
+                    breakfast.innerHTML = breakfastData;
                 } catch {
                     breakfast.innerHTML = "없음";
                 }
